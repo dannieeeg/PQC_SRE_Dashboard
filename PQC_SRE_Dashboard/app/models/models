@@ -1,0 +1,14 @@
+from pydantic import BaseModel
+from typing import Optional
+
+class EncryptedDescriptor(BaseModel):
+    username: str
+    encrypted_descriptor: str  # base64
+    ciphertext: str  # base64
+
+class Ticket(BaseModel):
+    id: int
+    title: str
+    description: str
+    status: str  # e.g., open, in_progress, resolved
+    application: Optional[str] = "monolith"
